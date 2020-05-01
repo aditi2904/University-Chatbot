@@ -1,0 +1,68 @@
+@base <http://example.org/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix schema: <http://schema.org/>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix focu: <http://focu.io/schema#> .
+
+focu:Student
+  a rdfs:Class ;
+  rdfs:subClassOf foaf:Person ;
+  rdfs:label "Student"@en .
+  
+focu:University
+  a rdfs:Class ;
+  rdfs:label "University"@en .
+  
+focu:Courses
+  a rdfs:Class ;
+  rdfs:label "Courses"@en .
+  
+focu:Topics
+  a rdfs:Class ;
+  rdfs:label "Topics"@en .
+
+focu:Transcript
+  a rdfs:Class ;
+  rdfs:label "Transcript"@en .
+
+focu:studentId
+  a rdf:Property ;
+  rdfs:label "studentId"@en ;
+  rdfs:comment "Univeristy ID of a student"@en .
+
+focu:isEnrolledAt
+  a rdf:Property ;
+  rdfs:label "isEnrolledAt"@en ;
+  rdfs:comment "Enrolled in University"@en ;
+  rdfs:domain focu:Student ;
+  rdfs:range focu:University .
+  
+focu:isofferedBy
+  a rdf:Property ;
+  rdfs:label "isofferedBy"@en ;
+  rdfs:comment "University offers courses"@en ;
+  rdfs:domain focu:Courses ;
+  rdfs:range focu:University .
+  
+focu:takesCourse
+  a rdf:Property ;
+  rdfs:label "takesCourse"@en ;
+  rdfs:comment "Student takes course"@en ;
+  rdfs:domain focu:Student ;
+  rdfs:range focu:Courses .
+
+focu:isAwarded
+  a rdf:Property ;
+  rdfs:label "isAwarded"@en ;
+  rdfs:comment "Student is awarded the grade"@en ;
+  rdfs:domain focu:Student ;
+  rdfs:range xsd:String .
+
+focu:hasTranscript
+  a rdf:Property ;
+  rdfs:label "hasTranscript"@en ;
+  rdfs:comment "Student has transcript"@en ;
+  rdfs:domain focu:Student .
